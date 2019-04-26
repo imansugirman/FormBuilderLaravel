@@ -7,7 +7,6 @@
 
 
 # Laravel 5 Form Builder
-
 Based on laravel-form-builder (https://github.com/kristijanhusak/laravel-form-builder). 
 I add default no editable form and few complex form fields.
 I add the validation system directly in the form part.
@@ -41,7 +40,7 @@ I add the validation system directly in the form part.
 6. [Controller](#controller)
 7. [Troubleshooting](#troubleshooting)
 
-##Installation
+## Installation
 
 Add on your composer.json
 
@@ -86,7 +85,7 @@ php artisan vendor:publish --provider="Distilleries\FormBuilder\FormBuilderServi
 ```
 
 
-###Basic usage
+### Basic usage
 
 Creating form classes is easy.
 With a simple artisan command I can create form:
@@ -146,17 +145,17 @@ class SongForm extends FormValidator
 }
 ```
 
-##Type of form
+## Type of form
 
-###Form
+### Form
 
 This is the base class from the package  [https://github.com/kristijanhusak/laravel-form-builder/tree/laravel-4](https://github.com/kristijanhusak/laravel-form-builder/tree/laravel-4).
 It use to add the fields and generate the form. Check the readme to know how use the component.
 
-###FormView
+### FormView
 Extend the class Form to add a render with edit.
 
-####Use the view
+#### Use the view
 To display an not editable form you can use `form_view` or `form_rest_view`.
 To display a specific field you can use `form_widget_view`.
 
@@ -194,7 +193,7 @@ On the user form I don't want display the role choice:
        ]);
 ```
 
-###FormValidator
+### FormValidator
 Extend the FormView and add the system of validation.
 
 ``` php
@@ -205,7 +204,7 @@ Extend the FormView and add the system of validation.
 The both table use [the rules of laravel](http://laravel.com/docs/4.2/validation).
 If the `$rules_update` keep in null the `$rules` is use to validate the form.
 
-####Use the validation client side
+#### Use the validation client side
  By default I use [jQuery validation Engine](https://github.com/posabsolute/jQuery-Validation-Engine) for the javascript validation.
  When you add a field you can add an option `validation` to add the javascript validation.
  
@@ -319,7 +318,7 @@ In the FormValidator you have two methods to get the update or general rules (`g
 That what I do in the UserForm. I override the method `getUpdateRules` to add the id of user for the validation.
 
 
-####Check the rules on your controller:
+#### Check the rules on your controller:
 
  ``` php
     $form = FormBuilder::create('Project\Forms\UserForm', [
@@ -341,9 +340,9 @@ That what I do in the UserForm. I override the method `getUpdateRules` to add th
 
 
 
-##List of fields
+## List of fields
 
-###1 Input
+### 1 Input
 
 Can be one of those type: 
 
@@ -371,9 +370,9 @@ file | `<input type="text" />`
     ])
 ```
 
-###2 Choice
+### 2 Choice
 
-####2.1 Select
+#### 2.1 Select
 
 ``` php
  $this->add('subscription', 'choice', [
@@ -383,7 +382,7 @@ file | `<input type="text" />`
     ])
 ``` 
 
-####2.2 Radio
+#### 2.2 Radio
 
 ``` php
 $this->add('subscription', 'choice', [
@@ -394,7 +393,7 @@ $this->add('subscription', 'choice', [
 ```
         
 
-###2.3 Checkbox
+### 2.3 Checkbox
 
 ``` php
 $this->add('subscription', 'choice', [
@@ -405,7 +404,7 @@ $this->add('subscription', 'choice', [
  ])
 ```        
 
-###2.4 Ajax
+### 2.4 Ajax
 The tag component is base on  [select2](http://select2.github.io/select2/).
 
 Add the javascript on your bower components:
@@ -503,7 +502,7 @@ Render not editable:
 ![choice_ajax_view](http://distilleri.es/markdown/formbuilder/_images/choice_ajax_view.png)
 
 
-###3 Tag
+### 3 Tag
 The tag component is base on  [select2](http://select2.github.io/select2/).
 
 Add the javascript on your bower components:
@@ -529,7 +528,7 @@ Render not editable:
 ![cc_view](http://distilleri.es/markdown/formbuilder/_images/cc_view.png)
 
 
-###4 Upload
+### 4 Upload
 The upload field use [moximanager](http://www.moxiemanager.com/) to link the elements with all the media components.
 
 ``` php
@@ -546,7 +545,7 @@ Render editable:
 ![cc](http://distilleri.es/markdown/formbuilder/_images/upload.png)
 
 
-###5 TinyMce
+### 5 TinyMce
 If you want use a rich content editor you can use [tinymce](http://www.tinymce.com/).
 
 ``` php
@@ -564,7 +563,7 @@ Render not editable:
 ![tinymce_view](http://distilleri.es/markdown/formbuilder/_images/tinymce_view.png)
  
   
-###6 Textarea
+### 6 Textarea
 The textarea work like a text field.
 
 ``` php
